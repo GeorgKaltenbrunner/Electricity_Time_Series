@@ -1,16 +1,14 @@
 # Imports
 
-from dateutil.parser import parse
-import matplotlib as mpl
+
+import statsmodels.api as sm
 import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 import pandas as pd
 from math import sqrt
 from sklearn.metrics import mean_squared_error
 
 plt.rcParams.update({'figure.figsize': (10, 7), 'figure.dpi': 120})
-import statsmodels.api as sm
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Data

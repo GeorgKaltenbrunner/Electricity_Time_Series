@@ -1,7 +1,6 @@
 # Imports
 
 import pandas as pd
-from statsmodels.tsa.stattools import acf, pacf
 from statsmodels.graphics.tsaplots import plot_pacf, plot_acf
 import statsmodels.api as sm
 from sklearn.metrics import mean_squared_error
@@ -21,15 +20,15 @@ df_test = df.iloc[int(len(df) * 0.7):]
 # Original, 1. Diff, 2. Diff
 # Original Series
 fig, (ax1, ax2, ax3) = plt.subplots(3)
-ax1.plot(df_train.production);
-ax1.set_title('Original Series');
+ax1.plot(df_train.production)
+ax1.set_title('Original Series')
 ax1.axes.xaxis.set_visible(False)
 # 1st Differencing
-ax2.plot(df_train.production.diff());
-ax2.set_title('1st Order Differencing');
+ax2.plot(df_train.production.diff())
+ax2.set_title('1st Order Differencing')
 ax2.axes.xaxis.set_visible(False)
 # 2nd Differencing
-ax3.plot(df_train.production.diff().diff());
+ax3.plot(df_train.production.diff().diff())
 ax3.set_title('2nd Order Differencing')
 plt.show()
 

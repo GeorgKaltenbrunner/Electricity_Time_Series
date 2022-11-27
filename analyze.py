@@ -1,6 +1,6 @@
 # Imports
 
-from dateutil.parser import parse
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,7 +9,6 @@ import pandas as pd
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller, kpss
 from pandas.plotting import autocorrelation_plot
-from statsmodels.tsa.stattools import acf, pacf
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from pandas.plotting import lag_plot
 import datetime
@@ -34,14 +33,14 @@ print(f"End of the time series: {max(df.index)}")
 # ---------------------------------------------------------------------------------------------------------------------
 # Visualize
 # Draw Plot
-def plot_df(df, x, y, title="", xlabel='Date', ylabel='production', dpi=100):
+def plot_df(x, y, title="", xlabel='Date', ylabel='production', dpi=100):
     plt.figure(figsize=(16, 5), dpi=dpi)
     plt.plot(x, y, color='tab:red')
     plt.gca().set(title=title, xlabel=xlabel, ylabel=ylabel)
     plt.show()
 
 
-plot_df(df, x=df.index, y=df.production, title='Electricity production from 1985 to 2018')
+plot_df(x=df.index, y=df.production, title='Electricity production from 1985 to 2018')
 
 # Single plot for each year
 # Plot Dataset for each year
@@ -85,7 +84,7 @@ sns.boxplot(x='year', y='production', data=df, ax=axes[0])
 sns.boxplot(x='month', y='production', data=df.loc[~df.year.isin([1991, 2008]), :])
 
 # Set Title
-axes[0].set_title('Year-wise Box Plot\n(The Trend)', fontsize=18);
+axes[0].set_title('Year-wise Box Plot\n(The Trend)', fontsize=18)
 axes[1].set_title('Month-wise Box Plot\n(The Seasonality)', fontsize=18)
 fig.autofmt_xdate()
 plt.show()

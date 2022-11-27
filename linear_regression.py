@@ -67,7 +67,7 @@ plt.plot(df_test.index, df_test.predicted_test)
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Validation
-# MAE_linear_rgeression
+# MAE_linear_regeression
 df_test['diff'] = abs(df_test['production'] - df_test.predicted_test)
 MAE = sum(df_test['diff']) / len(df_test)
 print(MAE)
